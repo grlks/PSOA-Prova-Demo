@@ -1,5 +1,5 @@
-Document (
-  Group (
+RuleML (
+  Assert (
     Charles#_successor
   )
 )

@@ -1,10 +1,12 @@
-Document (
-  Group (
-    % Derivation rule for the succession to the British throne:
+RuleML (
+  Assert (
+    Charles#_successor
+
+    % Pure production rule for the succession to the British throne:
     % A successor must be a (biological) child of a successor and both
     % parents have to be in marriage.
     Forall ?Ch ?P1 ?P2 (
-      ?Ch#_successor :-
+      ?Ch#_successor ::-
         And( ?Ch#_child( _parent->?P1 _parent->?P2 )
              _marriage( _partner+>?P1 _partner+>?P2 )
              ?P1#_successor
