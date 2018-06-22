@@ -1,0 +1,23 @@
+RuleML (
+  Assert (
+    Charles#_successor
+
+    % Derivation rule for the succession to the British throne:
+    % A successor must be a legitimate (biological) child of a successor.
+    Forall ?Ch ?P1 (
+      ?Ch#_successor :-
+        And( 
+          ?Ch#_child( _legitimate  _parent->?P1 )
+          ?P1#_successor
+        )
+    )
+
+    % Pure production rule for a legitimate child
+    Forall ?Ch ?P1 ?P2 (
+      ?Ch#_child( _legitimate ) ::-
+         And( ?Ch#_newly_born( _parent->?P1 _parent->?P2 )
+              _marriage( _partner+>?P1 _partner+>?P2 )
+         )
+    )
+  )
+)
